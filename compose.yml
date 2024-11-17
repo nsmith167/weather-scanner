@@ -1,0 +1,10 @@
+services:
+  weather-scanner:
+    build: .
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - WEATHER_ZIP=${WEATHER_ZIP}
+      - MQTT_HOST=${MQTT_HOST}
+      - MQTT_USERNAME=${MQTT_USERNAME}
+      - MQTT_PASSWORD=${MQTT_PASSWORD}
+      - WEATHER_TOPIC=${WEATHER_TOPIC}
