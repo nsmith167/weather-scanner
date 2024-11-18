@@ -26,7 +26,7 @@ jobs:
 
       - name: Build and tag Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/weather-scanner:latest .
+          docker build --platform linux/amd64,linux/arm/v7 -t ${{ secrets.DOCKER_USERNAME }}/weather-scanner:latest .
           docker tag ${{ secrets.DOCKER_USERNAME }}/weather-scanner:latest ${{ secrets.DOCKER_USERNAME }}/weather-scanner:${{ env.sha_short }}
 
       - name: Push Docker images
