@@ -1,6 +1,6 @@
 services:
   weather-scanner:
-    build: .
+    image: nsmith167/weather-scanner:latest
     environment:
       - WEATHER_API_KEY=${WEATHER_API_KEY}
       - WEATHER_ZIP=${WEATHER_ZIP}

@@ -28,5 +28,5 @@ while(True):
     except Exception as err:
         logging.error(err)
 
-    # Get weather data once every 5 seconds
-    time.sleep(5)
+    # Get weather data once every 5 minutes
+    time.sleep(300)
