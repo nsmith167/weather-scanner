@@ -11,4 +11,4 @@ def get_weather(location, api_key):
     if 'code' in response and str(response['code'])[:1] != '2':
         raise Exception(response)
     logging.info("Successfully retrieved weather data")
-    return str(response)
+    return response

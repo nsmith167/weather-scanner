@@ -1,5 +1,6 @@
 from weather_fetcher import get_weather
 from weather_publisher import publish_weather
+from weather_data_translator import to_persistence_model
 import os
 import logging
 import sys
@@ -24,7 +25,11 @@ weather_topic = os.getenv('WEATHER_TOPIC')
 while(True):
     try:
         weather_data = get_weather(location, api_key)
-        publish_weather(mqtt_host, weather_topic, mqtt_username, mqtt_password, weather_data)
+        publish_weather(mqtt_host, 
+                        weather_topic, 
+                        mqtt_username, 
+                        mqtt_password, 
+                        to_persistence_model(weather_data))
     except Exception as err:
         logging.error(err)
 
