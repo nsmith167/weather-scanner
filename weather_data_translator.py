@@ -11,7 +11,7 @@ def to_persistence_model(data):
         'measurements': [
             'cloud_cover',
             'temperature',
-            'temperature_apparent'
+            'temperature_apparent',
             'humidity'
         ],
         'values' : [

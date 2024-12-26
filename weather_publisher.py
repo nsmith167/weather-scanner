@@ -12,7 +12,7 @@ def publish_weather(host, topic, username, password, message):
 
     # Publish a message to a topic
     info = client.publish(topic, message)
-    logging.debug(info.is_published())
+    #logging.debug(info.is_published())
 
     # Disconnect from the broker
     client.disconnect()
