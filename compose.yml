@@ -1,8 +1,7 @@
 services:
   weather-scanner:
-    build: .
-    # image: nsmith167/weather-scanner:latest
-    # platform: linux/arm/v7
+    image: nsmith167/weather-scanner:latest
+    platform: linux/arm/v7
     environment:
       - WEATHER_API_KEY=${WEATHER_API_KEY}
       - WEATHER_ZIP=${WEATHER_ZIP}
