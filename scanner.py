@@ -1,6 +1,6 @@
 from weather_fetcher import get_weather
 from weather_publisher import publish_weather
-from weather_data_translator import to_persistence_model
+from weather_data_translator import to_message
 import os
 import logging
 import sys
@@ -29,7 +29,7 @@ while(True):
                         weather_topic, 
                         mqtt_username, 
                         mqtt_password, 
-                        to_persistence_model(weather_data))
+                        to_message(weather_data))
     except Exception as err:
         logging.error(err)
 

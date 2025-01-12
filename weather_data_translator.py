@@ -1,25 +1,16 @@
 import json
+from datetime import datetime, timezone
 import os
-import time
-import logging
 
-def to_persistence_model(data):
+def to_message(data):
     data = data['data']['values']
-    persistence_data = {
-        'device': os.getenv("DEVICE_NAME"),
-        'timestamp': int(time.time()),
-        'measurements': [
-            'cloud_cover',
-            'temperature',
-            'temperature_apparent',
-            'humidity'
-        ],
-        'values' : [
-            data['cloudCover'],
-            data['temperature'],
-            data['temperatureApparent'],
-            data['humidity']
-        ]
+    message = {
+        'timestamp': str(datetime.now(timezone.utc)),
+        'zip': os.getenv('WEATHER_ZIP'),
+        'cloud_cover': data['cloudCover'],
+        'temperature':  data['temperature'],
+        'temperature_apparent': data['temperatureApparent'],
+        'humidity': data['humidity']
     }
-    return json.dumps(persistence_data)
+    return json.dumps(message)
     
