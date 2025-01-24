@@ -5,7 +5,7 @@ import os
 def to_message(data):
     data = data['data']['values']
     message = {
-        'timestamp': str(datetime.now(timezone.utc)),
+        'timestamp': str(datetime.now(timezone.utc).isoformat()),
         'zip': os.getenv('WEATHER_ZIP'),
         'cloud_cover': data['cloudCover'],
         'temperature':  data['temperature'],
